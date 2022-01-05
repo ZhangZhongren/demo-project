@@ -1,18 +1,13 @@
 <template>
   <div class="hello">
-
-    <div class="">
-      <button v-intro="'The content of tooltip'" v-intro-position="'top'">123</button>
-      <div v-intro="'The content of tooltip'" v-intro-position="'top'">456</div>
-    </div>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+      <a href="https://cli.vuejs.org" id="first-element-introduction" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
     <h3>Installed CLI Plugins</h3>
-    <ul>
+    <ul id="second-element-introduction">
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
     </ul>
@@ -36,14 +31,32 @@
 </template>
 
 <script>
-import introJS from '../utils/index'
+import driver from '../utils/driver'
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
   },
   mounted() {
-    introJS.start() // 退出引导调用 exit() 即可
+    driver.defineSteps([
+      {
+        element: '#first-element-introduction',
+        popover: {
+          title: 'Title on Popover',
+          description: 'Body of the popover',
+          position: 'bottom'
+        }
+      },
+      {
+        element: '#second-element-introduction',
+        popover: {
+          title: 'Title on Popover',
+          description: 'Body of the popover',
+          position: 'bottom'
+        }
+      },
+    ])
+    driver.start();
   }
 }
 </script>
