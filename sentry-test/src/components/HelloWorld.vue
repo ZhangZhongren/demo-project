@@ -13,7 +13,14 @@ export default {
     msg: String
   },
   created() {
-    // console.log(ddddd)
+    this.$message.error('----')
+    this.$message.error('----')
+    this.$message.error('----')
+    this.$message.error('----')
+    this.$message.error('----')
+    this.$message.error('----')
+    this.$message.error('----')
+    this.$message.error('----')
   },
   methods: {
     errorsomething() {
