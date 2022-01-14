@@ -1,17 +1,21 @@
 <template>
   <div class="hello">
+    <button @click.stop="startGuide">开始</button>
     <h1>{{ msg }}</h1>
+    
+    <button id="first-element-introduction">第一步</button>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
-      <a href="https://cli.vuejs.org" id="first-element-introduction" target="_blank" rel="noopener">vue-cli documentation</a>.
+      <a href="https://cli.vuejs.org"  target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
     <h3>Installed CLI Plugins</h3>
-    <ul id="second-element-introduction">
+    <ul >
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
     </ul>
     <h3>Essential Links</h3>
+    <button id="second-element-introduction">第二步</button>
     <ul>
       <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
       <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
@@ -39,24 +43,29 @@ export default {
   },
   mounted() {
     driver.defineSteps([
-      {
-        element: '#first-element-introduction',
-        popover: {
-          title: 'Title on Popover',
-          description: 'Body of the popover',
-          position: 'bottom'
-        }
-      },
-      {
-        element: '#second-element-introduction',
-        popover: {
-          title: 'Title on Popover',
-          description: 'Body of the popover',
-          position: 'bottom'
-        }
-      },
-    ])
-    driver.start();
+        {
+          element: '#first-element-introduction',
+          popover: {
+            title: 'Title on Popover',
+            description: 'Body of the popover',
+            position: 'bottom'
+          }
+        },
+        {
+          element: '#second-element-introduction',
+          popover: {
+            title: 'Title on Popover',
+            description: 'Body of the popover',
+            position: 'bottom'
+          }
+        },
+      ])
+  },
+  methods: {
+    startGuide() {
+      
+      driver.start();
+    }
   }
 }
 </script>

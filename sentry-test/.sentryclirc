@@ -1,0 +1,7 @@
+[defaults]
+url=http://localhost:9000
+org=sentry
+project=vue
+
+[auth]
+token=c37403a190b946679dba616d22be6ddc64d9e9be3f82452cb3cb36c9d01c321d
